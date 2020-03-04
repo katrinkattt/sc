@@ -4,30 +4,39 @@ import Button from './button';
 export default class CategoryProj extends Component{
     constructor(props){
         super(props)
-            this.state = {
-                color: [
-                    '#46a7f9',
-                    '#ff8800',
-                    '#9a08fc',
-                    '#a7fc08',
-                    'red',
-                    '#164cfd'
-                ],
-                text: [
-                    "город",
-                    "автоматизация",
-                    "дороги",
-                    "экология",
-                    "жкх",
-                    "университет"
-                ],
-                link: [
-                    "#город",
-                    "#автоматизация",
-                    "#дороги",
-                    "#экология",
-                    "#жкх",
-                    "#университет"
+            this.initialState = {
+                circle:[
+                    {
+                        color:'#46a7f9',
+                        text: "город",
+                        link: "#город"
+                    },
+                    {
+                        color:'#ff8800',
+                        text:  "автоматизация",
+                        link: "#город"
+                    },
+                    {
+                        color:'#9a08fc',
+                        text: "дороги",
+                        link: "#город"
+                    },
+                    {
+                        color:'#a7fc08',
+                        text: "экология",
+                        link: "#город"
+                    },
+                    {
+                        color:'red',
+                        text: "жкх",
+                        link: "#город"
+                    },
+                    {
+                        color: '#164cfd',
+                        text: "университет",
+                        link: "#город"
+                    },
+
                 ]
             }
         }
@@ -47,12 +56,12 @@ export default class CategoryProj extends Component{
                     <div className="cards__b">
                         <div className="big-block">
                             {
-                                this.state.color.map((color, id) =>
-                                    <div href={this.state.link[id]} className="small-block categor__card" id={"card__"+id}
+                                this.initialState.circle.map((curr, id) =>
+                                    <div href={curr.link} className="small-block categor__card" id={"card__"+id}
                                     key={id}
-                                    style={{background:color}}
+                                    style={{background:curr.color}}
                                     >
-                                        <a href="#goo"><div className="category__text">{this.state.text[id]}</div>
+                                        <a href="#goo"><div className="category__text">{curr.text}</div>
                                         </a>
                                 </div>
                                 )
