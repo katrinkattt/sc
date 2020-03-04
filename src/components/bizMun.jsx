@@ -4,14 +4,16 @@ import Button from './button';
 export default class BizMun extends Component{
     constructor(props){
         super(props)
-        this.state = {
-            text: [
-                "Бизнес",
-                "Муниципалитет",
-            ],
-            link: [
-                "#biz",
-                '#munz'
+        this.initialState = {
+            btn: [
+                {
+                    text: "Бизнес",
+                    link: "#biz"
+                },
+                {
+                    text: "Муниципалитет",
+                    link: '#munz'
+                }
             ]
         }
     }
@@ -30,11 +32,11 @@ export default class BizMun extends Component{
                     <div className="cards__b">
                         <div className="big-block">
                             {
-                                this.state.text.map((text, id) =>
+                                this.initialState.btn.map((c, id) =>
                                     <div className="small-block" id={"card__"+id}
                                     key={id}
                                 >
-                                    <Button text={text} link={this.state.link[id]} />
+                            <Button onClick={()=>{ }} text={c.text} link={c.link} />
                                 </div>
                                 )
                             }
