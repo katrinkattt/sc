@@ -2,9 +2,10 @@ import React from 'react';
 import Toolbar from './toolbar';
 import BizMun from './bizMun';
 import CategoryProj from './CategoryProj';
-// import ListProj from './listProj';
+import ListProj from './listProj';
+import Bm from './bm';
 
-export default class Main extends React.Component {
+export default class Page extends React.Component {
 
     constructor(props) {
 
@@ -14,11 +15,6 @@ export default class Main extends React.Component {
             // selectedCategoryIndex: 0
             categories: []
         }
-        this.setState = {
-            "current": "block",
-            "activ": "none"
-        }
-        var displayWiev = ''
 
         this.projectTypes =
             [
@@ -46,12 +42,12 @@ export default class Main extends React.Component {
                 },
                 {
                     "id": 3,
-                    "name": "жкх",
+                    "name": "Категория-1",
                     "projectTypes": [2]
                 },
                 {
                     "id": 4,
-                    "name": "дороги",
+                    "name": "Категория-2",
                     "projectTypes": [1, 2]
                 }
             ];
@@ -71,11 +67,6 @@ export default class Main extends React.Component {
                 title: 'Cистемма мониторинга работоспособноси и управления сетью табло',
                 text: 'табло предназначенно для отображения текущего времени прибытия общественного транспорта',
                 categories: [3, 4]
-            },
-            {
-                title: 'Cистемма мониторинга работоспособноси и управления сетью табло',
-                text: 'табло предназначенно для отображения текущего времени прибытия общественного транспорта',
-                categories: [3, 4]
             }
         ]
     }
@@ -85,50 +76,21 @@ export default class Main extends React.Component {
         return (
             <div className="content">
                 <Toolbar />
-                <div className="container " >
-                    <div className="second__c" style={{ display: this.displayWiev !== '' ? 'block' : 'none' }}>
-                        <div className="title_container">Bыберете решение для</div>
-                        <div className="cards__b">
-                            {/* <div style={{ display: this.state.categories.length > 0 ? "none" : "block" }}> */}
-                            {
-                                this.projectTypes.map(type => {
-                                    return (
-                                        <BizMun
-                                            name={type.name}
-                                            arr={this.projectTypes}
-                                            state={this.projectCategories}
-                                        // onClick={() => {
-                                        //     alert('is work')
-                                        //     this.setState({
-                                        //         categories: this.projectCategories.filter(pc => {
-                                        //             return pc.projectTypes.indexOf(type.id) !== -1
-
-                                        //         })
-                                        //     })
-                                        // }}
-                                        />
-                                    )
-                                })
-                            }
-                            {/* </div> */}
-                        </div>
-                    </div>
-                </div>
-                <div>
                     {
-                        this.state.categories.map(category => {
+                        this.state.projectTypes.map(name => {
                             return (
                                 <div>
-                                    <CategoryProj
-                                        name={category.name}
+                                    <Bm
+                                        arr={name}
                                     />
                                 </div>
                             )
                         })
                     }
                 </div>
+            
 
-                {/* <div>
+                /* <div>
                         {this.data[this.state.selectedCategoryIndex].name}
                         {
                             this.data[this.state.selectedCategoryIndex].categories.map(elem => {
@@ -140,9 +102,8 @@ export default class Main extends React.Component {
                     <div>
                         <button onClick={() => { this.setState({ selectedCategoryIndex: 0 }) }}>prev</button>
                         <button onClick={() => { this.setState({ selectedCategoryIndex: 1 }) }}>next</button>
-                    </div> */}
+                    </div> */
 
-            </div>
 
         )
     }
