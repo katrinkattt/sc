@@ -49,12 +49,12 @@ export default class CategoryProj extends Component {
                 <div className="cards__b">
                     <div className="big-block">
                         {
-                            this.props.state.map(type =>{
+                            this.props.categories.map(category =>{
                                 return(
                                 <div className="small-block categor__card"
-                                    style={{ background: type.color }}
+                                    style={{ background: category.color }}
                                 >
-                                    <a href="#goo"><div className="category__text">{type.name}</div>
+                                    <a href="#goo"><div className="category__text">{category.name}</div>
                                     </a>
                                 </div>
                                 )}

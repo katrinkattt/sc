@@ -1,6 +1,6 @@
 import React from 'react';
 import Toolbar from './toolbar';
-import BizMun from './bizMun';
+import CustomerType from './CustomerType';
 import CategoryProj from './CategoryProj';
 // import ListProj from './listProj';
 
@@ -14,11 +14,8 @@ export default class Main extends React.Component {
             // selectedCategoryIndex: 0
             categories: []
         }
-        this.setState = {
-            "current": "block",
-            "activ": "none"
-        }
-        var displayWiev = ''
+
+        // var displayViev = true
 
         this.projectTypes =
             [
@@ -37,7 +34,8 @@ export default class Main extends React.Component {
                 {
                     "id": 11,
                     "name": "С/Х",
-                    "projectTypes": [1, 2]
+                    "projectTypes": [1, 2],
+                    "color": "#45ab12"
                 },
                 {
                     "id": 12,
@@ -81,51 +79,41 @@ export default class Main extends React.Component {
     }
 
 
+
     render() {
         return (
             <div className="content">
                 <Toolbar />
                 <div className="container " >
-                    <div className="second__c" style={{ display: this.displayWiev !== '' ? 'block' : 'none' }}>
+                    <div className="second__c" style={{ display: this.state.categories.length > 0 ? "none" : "block" }}>
                         <div className="title_container">Bыберете решение для</div>
                         <div className="cards__b">
-                            {/* <div style={{ display: this.state.categories.length > 0 ? "none" : "block" }}> */}
-                            {
-                                this.projectTypes.map(type => {
-                                    return (
-                                        <BizMun
-                                            name={type.name}
-                                            arr={this.projectTypes}
-                                            state={this.projectCategories}
-                                        // onClick={() => {
-                                        //     alert('is work')
-                                        //     this.setState({
-                                        //         categories: this.projectCategories.filter(pc => {
-                                        //             return pc.projectTypes.indexOf(type.id) !== -1
-
-                                        //         })
-                                        //     })
-                                        // }}
-                                        />
-                                    )
-                                })
-                            }
-                            {/* </div> */}
+                            <div>
+                                {
+                                    this.projectTypes.map(type => {
+                                        return (
+                                            <CustomerType
+                                                name={type.name}
+                                                onClick={() => {
+                                                    this.setState({
+                                                        categories: this.projectCategories.filter(pc => {
+                                                            return pc.projectTypes.indexOf(type.id) !== -1
+                                                        })
+                                                    })
+                                                }}
+                                            />
+                                        )
+                                    })
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div>
-                    {
-                        this.state.categories.map(category => {
-                            return (
-                                <div>
-                                    <CategoryProj
-                                        name={category.name}
-                                    />
-                                </div>
-                            )
-                        })
-                    }
+
+                <div style={{ display: this.state.categories.length === 0 ? "none" : "block" }}>
+                    <CategoryProj
+                        categories={this.state.categories}
+                    />
                 </div>
 
                 {/* <div>
@@ -149,53 +137,27 @@ export default class Main extends React.Component {
 
 }
 
-// export default function Main(props){
-
-//     const data = JSON.parse( 
-//     [
-//         {
-//             "id": 1,
-//             "name": "Для бизнеса",
-//             "categories": [
-//                 {
-//                     "id": 1,
-//                     "name": "С/Х"
-//                 },
-//                 {
-//                     "id": 2,
-//                     "name": "ИТС"
-//                 }
-//             ]
-//         },
-//         {
-//             "id": 1,
-//             "name": "Для не бизнеса",
-//             "categories": [
-//                 {
-//                     "id": 3,
-//                     "name": "Тест"
-//                 },
-//                 {
-//                     "id": 4,
-//                     "name": "Тест2"
-//                 }
-//             ]
-//         }
-//     ]);
-
-//     return(
-//         <div className="content">
-//             <Toolbar />
-//             <div className="container">
 
 
 
+// arr={this.projectTypes}
+// state={this.projectCategories}
+// setState={this.setState}
+// tId={type.id}
+// categ={this.state.categories}
 
 
-//                 {/* <BizMun/> */}
-//                 {/* <CategoryProj /> */}
-//                 <ListProj />
+// style={{ display: (this.setState.displayViev !== false ? 'block' : 'none') }}
+
+
+// {
+//     this.state.categories.map(category => {
+//         return (
+//             <div>
+//                 <CategoryProj
+//                     name={category.name}
+//                 />
 //             </div>
-//         </div>
-//     )
+//         )
+//     })
 // }

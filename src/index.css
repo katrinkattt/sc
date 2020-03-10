@@ -35,6 +35,7 @@ body {
   font-weight: bold;
   color: #222121de;
   margin: 20px 0 30px 0;
+  font-size: 1.3rem;
 }
 
 .cards__b {
@@ -59,6 +60,9 @@ body {
 .btn__w {
   width: 180px;
   height: 50px;
+}
+.mainChoise{
+  z-index: 2;
 }
 
 .categor__card {
@@ -99,4 +103,22 @@ body {
   background: #fcd708;
   display: flex;
   justify-content: center;
+}
+
+.img__prj {
+  width: -moz-available;
+}
+
+.lead {
+  font-weight: bold;
+  color: #212529;
+}
+
+.fav {
+  float: right;
+  margin-top: -20px;
+}
+.fav > a > img {
+  max-height: 40px;
+  margin-left: 20px;
 }
