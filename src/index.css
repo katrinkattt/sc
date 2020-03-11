@@ -61,9 +61,6 @@ body {
   width: 180px;
   height: 50px;
 }
-.mainChoise{
-  z-index: 2;
-}
 
 .categor__card {
   float: left;
@@ -85,13 +82,6 @@ body {
   text-decoration: none;
   font-weight: bold;
   color: #5a5555;
-}
-
-.coiseCateg {
-  height: 90px;
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
 }
 
 .block__list {
@@ -121,4 +111,14 @@ body {
 .fav > a > img {
   max-height: 40px;
   margin-left: 20px;
+}
+
+.choise_category {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.inCategory {
+  max-width: 80%;
 }

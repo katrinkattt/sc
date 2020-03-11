@@ -43,7 +43,7 @@ export default class ListProj extends Component{
                     <div className="cards__b">
                     <div className="big-block">
                         {
-                            this.initialState.catalog.map((current, id) =>
+                            this.props.list.map((current, id) =>
                                 <div class="jumbotron">
                                     <img className="img__prj" src={current.image} alt="" srcset=""/>
                                     <p className="lead">{current.title}</p>

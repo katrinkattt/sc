@@ -2,7 +2,7 @@ import React from 'react';
 import Toolbar from './toolbar';
 import CustomerType from './CustomerType';
 import CategoryProj from './CategoryProj';
-// import ListProj from './listProj';
+import ListProj from './listProj';
 
 export default class Main extends React.Component {
 
@@ -12,7 +12,8 @@ export default class Main extends React.Component {
 
         this.state = {
             // selectedCategoryIndex: 0
-            categories: []
+            categories: [],
+            projects: [],
         }
 
         // var displayViev = true
@@ -33,47 +34,56 @@ export default class Main extends React.Component {
             [
                 {
                     "id": 11,
+                    "name": "город",
+                    "projectTypes": [1, 2],
+                    "color": "#"
+                },
+                {
+                    "id": 12,
                     "name": "С/Х",
                     "projectTypes": [1, 2],
                     "color": "#45ab12"
                 },
                 {
-                    "id": 12,
+                    "id": 13,
                     "name": "Транспорт",
-                    "projectTypes": [1]
+                    "projectTypes": [1],
+                    "color": "#62a5f7"
                 },
                 {
-                    "id": 3,
+                    "id": 14,
                     "name": "жкх",
-                    "projectTypes": [2]
+                    "projectTypes": [2],
+                    "color": "#fa5a89"
                 },
                 {
-                    "id": 4,
+                    "id": 15,
                     "name": "дороги",
-                    "projectTypes": [1, 2]
+                    "projectTypes": [1, 2],
+                    "color": "#090907"
                 }
             ];
 
         this.projects = [
             {
-                title: 'Система синхронизация табло обратного отчета времени на светофорных объектах г. Тюмени',
+                title: '21Система синхронизация табло обратного отчета времени на светофорных объектах г. Тюмени',
                 text: 'Веб-сервис предназначен для контроля работоспособности и управления комплексами устройств системы синхронизации табло обратного отсчёта времени на светофорных объектах с АСД г. Тюмень.',
                 categories: [1, 2]
             },
             {
-                title: 'Система мониторинга климата в складских и производственных помещениях',
+                title: '1Система мониторинга климата в складских и производственных помещениях',
                 text: 'Система мониторинга климата в складских и производственных помещениях',
                 categories: [1]
             },
             {
-                title: 'Cистемма мониторинга работоспособноси и управления сетью табло',
+                title: '21Cистемма мониторинга работоспособноси и управления сетью табло',
                 text: 'табло предназначенно для отображения текущего времени прибытия общественного транспорта',
-                categories: [3, 4]
+                categories: [1, 2]
             },
             {
-                title: 'Cистемма мониторинга работоспособноси и управления сетью табло',
+                title: '2Cистемма мониторинга работоспособноси и управления сетью табло',
                 text: 'табло предназначенно для отображения текущего времени прибытия общественного транспорта',
-                categories: [3, 4]
+                categories: [2]
             }
         ]
     }
@@ -88,7 +98,7 @@ export default class Main extends React.Component {
                     <div className="second__c" style={{ display: this.state.categories.length > 0 ? "none" : "block" }}>
                         <div className="title_container">Bыберете решение для</div>
                         <div className="cards__b">
-                            <div>
+                            <div className="hz">
                                 {
                                     this.projectTypes.map(type => {
                                         return (
@@ -113,6 +123,15 @@ export default class Main extends React.Component {
                 <div style={{ display: this.state.categories.length === 0 ? "none" : "block" }}>
                     <CategoryProj
                         categories={this.state.categories}
+                        projects={this.projects}
+                        name={this.projectCategories.name}
+                    />
+                </div>
+
+                <div style={{ display: this.state.projects.length === 0 ? "none" : "block" }}>
+                    <ListProj
+                        list={this.state.projects}
+
                     />
                 </div>
 
