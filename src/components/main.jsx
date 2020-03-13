@@ -14,6 +14,7 @@ export default class Main extends React.Component {
             // selectedCategoryIndex: 0
             categories: [],
             projects: [],
+            projSelect: false
         }
 
         // var displayViev = true
@@ -41,7 +42,7 @@ export default class Main extends React.Component {
                 {
                     "id": 12,
                     "name": "С/Х",
-                    "projectTypes": [1, 2],
+                    "projectTypes": [2],
                     "color": "#45ab12"
                 },
                 {
@@ -64,26 +65,26 @@ export default class Main extends React.Component {
                 }
             ];
 
-        this.projects = [
+        this.projectsList = [
             {
-                title: '21Система синхронизация табло обратного отчета времени на светофорных объектах г. Тюмени',
-                text: 'Веб-сервис предназначен для контроля работоспособности и управления комплексами устройств системы синхронизации табло обратного отсчёта времени на светофорных объектах с АСД г. Тюмень.',
-                categories: [1, 2]
+                'title': '21Система синхронизация табло обратного отчета времени на светофорных объектах г. Тюмени',
+                'text': 'Веб-сервис предназначен для контроля работоспособности и управления комплексами устройств системы синхронизации табло обратного отсчёта времени на светофорных объектах с АСД г. Тюмень.',
+                'categories': [1, 2]
             },
             {
-                title: '1Система мониторинга климата в складских и производственных помещениях',
-                text: 'Система мониторинга климата в складских и производственных помещениях',
-                categories: [1]
+                'title': '1Система мониторинга климата в складских и производственных помещениях',
+                'text': 'Система мониторинга климата в складских и производственных помещениях',
+                'categories': [1, 3]
             },
             {
-                title: '21Cистемма мониторинга работоспособноси и управления сетью табло',
-                text: 'табло предназначенно для отображения текущего времени прибытия общественного транспорта',
-                categories: [1, 2]
+                'title': '21Cистемма мониторинга работоспособноси и управления сетью табло',
+                'text': 'табло предназначенно для отображения текущего времени прибытия общественного транспорта',
+                'categories': [1, 2, 3]
             },
             {
-                title: '2Cистемма мониторинга работоспособноси и управления сетью табло',
-                text: 'табло предназначенно для отображения текущего времени прибытия общественного транспорта',
-                categories: [2]
+                'title': '2Cистемма мониторинга работоспособноси и управления сетью табло',
+                'text': 'табло предназначенно для отображения текущего времени прибытия общественного транспорта',
+                'categories': [2, 3]
             }
         ]
     }
@@ -123,8 +124,11 @@ export default class Main extends React.Component {
                 <div style={{ display: this.state.categories.length === 0 ? "none" : "block" }}>
                     <CategoryProj
                         categories={this.state.categories}
-                        projects={this.projects}
-                        name={this.projectCategories.name}
+                        projectCategories={this.projectCategories}
+                        projectsList={this.projectsList}
+                        name={this.state.categories.name}
+                        projects={this.state.projects}
+                        projSelect={this.state.projSelect}
                     />
                 </div>
 

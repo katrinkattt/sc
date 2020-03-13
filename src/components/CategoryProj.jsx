@@ -5,7 +5,7 @@ export default class CategoryProj extends Component {
 
     render() {
         return (
-            <div className="mainChoise">
+            <div className="mainChoise" style={{ display: this.props.projSelect === true ? "none" : "block" }}>
                 <div className="second__c">
                     <div className="title_container">Bыберете категории</div>
                     <div className="cards__b">
@@ -14,16 +14,14 @@ export default class CategoryProj extends Component {
                                 this.props.categories.map(category => {
                                     return (
                                         <div
-                                            onClick={()=>{
-                                                this.setState({
-                                                    projects: this.props.projects.filter(pc =>{
-                                                        return pc.props.name.indexOf(category.name) !== -1
-                                                    })
-                                                })
-
-                                            }
-                                        }
-                                        className="small-block categor__card"
+                                            // onClick={() => {
+                                            //     this.setState({
+                                            //         projects: this.props.projectsList.filter(pc => {
+                                            //             return pc.props.projectCategories.indexOf(category.categories) !== -1
+                                            //         })
+                                            //     })
+                                            // }}
+                                            className="small-block categor__card"
                                             style={{ background: category.color }}
                                         >
                                             <a href="#goo"><div className="category__text">{category.name}</div>
@@ -34,6 +32,13 @@ export default class CategoryProj extends Component {
                                 )
                             }
                         </div>
+                    </div>
+                    <div className="btn_category">
+                        <button onClick={() => {
+                            alert('ghgf')
+                            // this.state.props.projSelect = true
+                        }}
+                            type="button" class="btn btn-primary btn-lg btn__w">к каталогу</button>
                     </div>
                     <div className="choise_category">
                         <div class="jumbotron inCategory">
